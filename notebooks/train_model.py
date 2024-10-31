@@ -6,6 +6,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
 def main():
+    # Configurer MLflow pour utiliser un chemin relatif dans le dossier du projet
+    mlflow.set_tracking_uri("file://" + os.path.abspath("mlruns"))
     # Load data
     iris = load_iris()
     X = iris.data
