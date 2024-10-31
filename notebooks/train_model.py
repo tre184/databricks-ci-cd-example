@@ -7,11 +7,11 @@ from sklearn.metrics import accuracy_score
 import os
 
 def main():
-    # Configurer MLflow pour utiliser le chemin complet sur le disque D:
-    tracking_uri = "file:///D:/MES DOCUMENTS/COURS M2/5LAKE/databricks-ci-cd-example/mlruns"
+    # Configurer MLflow pour utiliser un chemin relatif dans le dossier du projet
+    tracking_uri = "file://" + os.path.abspath("mlruns")
 
     # S'assurer que le dossier mlruns existe
-    os.makedirs(os.path.abspath("D:/MES DOCUMENTS/COURS M2/5LAKE/databricks-ci-cd-example/mlruns"), exist_ok=True)
+    os.makedirs(os.path.abspath("mlruns"), exist_ok=True)
     mlflow.set_tracking_uri(tracking_uri)
     # Load data
     iris = load_iris()
