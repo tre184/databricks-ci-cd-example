@@ -6,13 +6,21 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 import os
 
-def main():
-    # Configurer MLflow pour utiliser un chemin relatif dans le dossier du projet
-    tracking_uri = "file://" + os.path.abspath("mlruns")
+import tempfile
 
-    # S'assurer que le dossier mlruns existe
-    os.makedirs(os.path.abspath("mlruns"), exist_ok=True)
+
+def configure_mlflow():
+    if "GITHUB_ACTIONS" in os.environ:
+        tracking_uri = "file://" + tempfile.mkdtemp()
+    else:
+        tracking_uri = "file://" + os.path.abspath("mlruns")
+        os.makedirs(os.path.abspath("mlruns"), exist_ok=True)
+
     mlflow.set_tracking_uri(tracking_uri)
+    print(f"Tracking URI configuré : {mlflow.get_tracking_uri()}")
+def main():
+    configure_mlflow()
+
     # Load data
     iris = load_iris()
     X = iris.data
