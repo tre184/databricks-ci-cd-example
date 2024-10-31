@@ -22,7 +22,7 @@ jobs:
           pip install databricks-cli
 
       - name: Set PYTHONPATH
-        run: echo "PYTHONPATH=$PYTHONPATH:$(pwd)" >> $GITHUB_ENV
+        run: echo "PYTHONPATH=$PYTHONPATH:$(pwd)" >> $GITHUB_ENV #
 
       - name: Run tests
         run: pytest tests/
