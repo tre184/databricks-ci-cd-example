@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/MES%20DOCUMENTS/COURS%20M2/5LAKE/databricks-ci-cd-example/mlruns/0/666014d4c8f04b2ba4202d7369addead/artifacts
+end_time: 1730379883749
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 666014d4c8f04b2ba4202d7369addead
+run_name: marvelous-grub-523
+run_uuid: 666014d4c8f04b2ba4202d7369addead
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1730379869195
+status: 3
+tags: []
+user_id: treso
