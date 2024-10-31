@@ -26,5 +26,10 @@ def main():
     mlflow.log_metric("accuracy", accuracy)
     mlflow.sklearn.log_model(model, "random_forest_model")
 
+    # Register the model
+    run_id = mlflow.active_run().info.run_id
+    model_uri = f"runs:/{run_id}/random_forest_model"
+    mlflow.register_model(model_uri, "IrisRFModel")
+
 if __name__ == "__main__":
     main()
